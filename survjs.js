@@ -61,6 +61,8 @@ function nextPrev(n) {
   showTab(currentTab);
 }
 
+
+/*
 function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
@@ -82,6 +84,9 @@ function validateForm() {
   }
   return valid; // return the valid status
 }
+*/
+
+
 
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
