@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel ="stylesheet" href = "surv_style.css"/> 
+</head>
+<body>
+
+    <form id="regForm">
+        <img style='height: 100%; width: 100%; object-fit: contain' src = "pff_logo.png" alt = "PFF Logo" class ="center">
+        <h1>Impact Measure Survey</h1>
+        <div class="tab"> Organization &#38 Project:
+            <p><label for = "Email">Email</label>
+                <input name = "Email" placeholder="Email" oninput="this.className=''">
+            </p>
+            <p><label for="Organization Name"> Name of Organization</label>
+                <select name="Organization" id="org-name">
+                    <option value="" selected="selected">Select Organization</option>
+                </select>
+            </p>
+
+            <p><label for="project">Project</label>
+                <select name="Project" id="project">
+                    <option value="" selected="selected">Select Project</option>
+                </select>
+            </p>
+ 
+            <p><label for="Focus Area - BHAG">Focus Area - BHAG</label>
+                <select name = "Focus Area - BHAG" id = "bhag">
+                <option> Select Focus Area - BHAG </option>
+                <option> CHR - Immigration</option>
+                <option> CHR - Women's Justice </option>
+                <option> PCHI - AIDS </option>
+                <option> PCHI - Behavioral Health </option>
+                <option> PCHI - Reproductive Health </option>
+                <option> PCHI - Uninsured </option>
+                </select>
+            </p>
+        </div>
+        
+        
+        <div class="tab"> 
+            <p><label for="Impact Measure"> Impact Measure</label>
+                <select name="Impact Measure" id="impmeasure">
+                    <option value="" selected="selected">Select Impact Measure</option>
+                </select>
+            </p>
+            
+            <p><label>Year</label> 
+                <select name = "Year">
+                <option>Please Select Year</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+                <option>2027</option>
+                <option>2028</option>
+                <option>2029</option>
+                <option>2030</option>
+                </select>
+            </p>
+            
+            <p><input name = "Next Year Projected" placeholder="Next Year Projected" oninput="this.className = ''"></p>
+            <p><input name = "Current Year Actual" placeholder="Current Year Actual" oninput="this.className = ''"></p>
+            
+            <div id ="genprompt">
+            <p>Do you have gender related data to submit?</p>
+
+            <input type="checkbox" id="ye" name="yesOrNo" value="ye" onclick="dispGen(this.value)"> 
+            <label for = "ye">Yes</label>
+            <br><br>
+            <input type="checkbox" id="ne" name="yesOrNo" value="ne" onclick = "dispGen(this.value)">
+            <label for = "ne">No </label>
+            </div>
+                
+                
+            <div id = "ye1" style = "display:none;">
+                
+            <p>Gender Identity Information</p>
+            
+            <p><input name = "Male" placeholder="Male" oninput="this.className = ''"></p>
+            <p><input name = "Female" placeholder="Female" oninput="this.className = ''"></p>
+            <p><input name = "Trans-Male" placeholder="Trans-Male" oninput="this.className = ''"></p>
+            <p><input name = "Trans-Female" placeholder="Trans-Female" oninput="this.className = ''"></p>
+            <p><input  name = "Non-Binary" placeholder="Non-Binary" oninput="this.className = ''"></p>
+            <p><input name = "Other" placeholder="Other" oninput="this.className = ''"></p>
+            <p><input name = "Unknown/Patient Declined" placeholder="Unknown/Patient Declined" oninput="this.className = ''"></p>
+                
+            </div>
+            
+            <div id ="racprompt">
+            <p>Do you have racial and ethnic demographic data to submit?</p>
+            
+            <input type="checkbox" id="yee" name="yesOrNo" value="yee" onclick="dispRac(this.value)"> 
+            <label for = "yee">Yes</label>
+            <br><br>
+            <input type="checkbox" id="nee" name="yesOrNo" value="nee" onclick = "dispRac(this.value)">
+            <label for = "nee">No </label>
+            </div>
+            
+            <div id = "yee2" style= "display: none;">
+            <p>Racial &#38 Ethnic Demographic Information</p>
+            
+            <p><input name = "Non-Hispanic European-American/White" placeholder="Non-Hispanic European-American/White" oninput="this.className = ''"></p>
+            <p><input name = "Non-Hispanic African American/Black" placeholder="Non-Hispanic African American/Black" oninput="this.className = ''"></p>
+            <p><input name = "Hispanic Latino/a/x" placeholder="Hispanic Latino/a/x" oninput="this.className = ''"></p>
+            <p><input name = "Non-Hispanic Asian-American/Asian" placeholder="Non-Hispanic Asian-American/Asian" oninput="this.className = ''"></p>
+            <p><input name = "Native American/Alaskan Native/Indigenous" placeholder="Native American/Alaskan Native/Indigenous" oninput="this.className = ''"></p>
+            <p><input name = "Native Hawaiian/Pacific Islander" placeholder="Native Hawaiian/Pacific Islander" oninput="this.className = ''"></p>
+            <p><input name = "Multi-Racial" placeholder="Multi-Racial" oninput="this.className = ''"></p>
+            <p><input name = "Unknown/Decline to Answer" placeholder="Unknown/Decline to Answer" oninput="this.className = ''"></p>
+            
+            </div>
+            
+            <div id = "geoprompt">
+            <p>Do you have geographic data to submit?</p>
+
+            <input type="checkbox" id="yes" name="yesOrNo" value="yes" onclick="displayQ(this.value)"> 
+            <label for = "yes">Yes</label>
+            <br><br>
+            <input type="checkbox" id="no" name="yesOrNo" value="no" onclick = "displayQ(this.value)">
+            <label for = "no">No </label>
+            </div>
+                
+            <div id = "yesQ" style = "display:none;">
+                
+            <p>Geographic Information</p>
+             <p><input type = "text" name = "Top 5 Zip Codes Served" placeholder="Top 5 Zip Codes Served" /></p>
+             <p><input type = "text" name = "Number Individuals Served in Cook County" placeholder="Number Individuals Served in Cook County" /></p>
+             <p><input type = "text" name = "Number Individuals Served in Collar Counties" placeholder="Number Individuals Served in Collar Counties" /></p>
+             <p><input type = "text" name ="Number Individuals Served in Downstate Counties" placeholder="Number Individuals Served in Downstate Counties" /></p>
+        </div>
+             
+        </div>
+        
+        
+        
+        
+            
+        <div class="tab"> Do you have additional impact measure data to submit? 
+           <p><button type = "reset" style = "background-color:#0000CD" id = "redirectButton">Yes</button></p>
+            <p><button type = "submit" style = "background-color:#0000CD" id = "submit-button">No</button></p>
+    <!--
+            <script>
+                //this script adds an on click event that asks for a main page to be the current adress of the webpage
+                //I also moved the main page html to a different folder becuase it should be done that way
+                //Never keep multiple pages in one file
+                // you will need to also link your css in the new file.
+                document.getElementById("redirectButton").onclick = function ()=>{
+                    location.href = "mainpage.html"};
+                document.getElementById("submit-button").onclick = function ()=>{
+                    location.href = "thankyou_page.html"
+                }
+            </script>
+    -->
+        </div>
+        
+        
+ <!-- this is the next and previous buttons that go on each page except the last two -->
+        
+         <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" style = "background-color:#0000CD" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+        </div>
+        
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+        
+        
+    </form>
+    
+   
+<script type = "text/javascript" src ="survjs.js"></script> 
+
+    
+</body>
+</html>
